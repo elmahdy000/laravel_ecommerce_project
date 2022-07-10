@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return  view('login');
-});
-Route::get('/index',function(){
-  return view('welcome');
-});
 
+
+
+Route::get('/login',[\App\Http\Controllers\UserController::class,'showLogin'])->name('user.show_login');
+Route::post('/login',[\App\Http\Controllers\UserController::class,'login'])->name('user.login');
+Route::get('/',[\App\Http\Controllers\ProductController::class,'index'])->name('product.index');
 
 
 
